@@ -1,107 +1,95 @@
-# Comments! Use comments to explain your code.
+# Python Workshop 1 - variables, data types, arithmetic operations, functions
+
+# author Carrigan Hudgins
+# email cdh5@rice.edu
+# date 14 Feb 2021
 
 
-# Variables: reusable names
-# Can contain letters, numbers, underscores
-# Best practice: separate words with underscores, use meaningful names
-# TODO: Fix Bug
+# Comments! Be sure to comment your code for your future reference and for others to understand
+# To block comment/uncomment, the keyboard shortcut is command + /
 
-current_year = 2021
+print("==========")
+
+# Variables
+# Variable names can contain letters, numbers, and underscores. Best practice is to separate words in your
+# variable names with underscores.
+this_year = 2021
 last_year = 2020
-print(current_year)
-print(last_year)
-print(current_year, last_year)
-print('current year:', current_year)
+print(this_year, last_year)
+print("current year:", this_year)
 
-# Show how to refactor variables
+# To refactor variables: right click variable name -> refactor -> rename
 
-# Variable naming
+# References to immutable numbers. Note that when the last_year variable is changed to 2021, worst_year
+# will still reference 2020.
 worst_year = last_year
 print(worst_year)
 last_year = 2021
-print(last_year, worst_year)
+print(worst_year, last_year)
 
-# show how to block comment/uncomment (command /)
+print("==========")
 
-# Data types
-
-# integer
+# Data types: integers and floats
 print(1)
-# float
 print(1.1)
-
-# int to convert float to integer, truncates
 print(int(1.1))
-print(int(1.7))
-
-# float to convert integer
+print(int(1.7))  # Note that the int command truncates
 print(float(1))
 
-# string
+# Data types: strings
 s1 = 'Python is fun'
-s2 = "yay Python"  # note that you can use double or single quotes
-
+s2 = 'Yay BIOE'
 print(s1)
 print(s2)
 
 s3 = '''Use triple quotes
-for multiple
-lines!'''
-
+for multiple lines!'''
 print(s3)
 
-# Arithmetic operations
-print(2 + 2)
-print(10 - 3)
-print(5 * 4)
-print(5 / 2)
-# integer division
-print(5 // 2)
-print(2 ** 3)
+print("==========")
 
-# Best practice: use parentheses, don't rely on pemdas
-print(3 + 2 / 6 - 3 / 4)
+# Basic arithmetic operations
+print(2 + 2)  # addition
+print(10 - 3)  # subtraction
+print(5 * 4)  # multiplication
+print(5 / 2)  # division
+print(5 // 2)  # integer division
+print(2 ** 3)  # exponentiation
 
+# Modular arithmetic: returns the remainder of the divison
+print(10 % 3)  # 10 mod 3 will print remainder 1
+print(10 % 2)
 
-# mod arithmetic: useful for finding out if number is even or odd or finding the remainder
+print(((3 + 2) / (6 - 3)) / 4)  # when combining multiple operations, use parentheses. Don't rely on PEMDAS.
 
+print("==========")
 
-# Functions: remember order of operations and indentation/spacing
-
-# should always include docstrings in the functions you write...basically provide documentation for your functions
-def rectangle_area(side_1, side_2):
+# Functions
+def rectangle_area(side1, side2):
     """
-    Write statement of what function does: Compute the area of a rectangle
+    Compute the area of a rectangle.
 
-    :param side_1: float representing length of one side
-    :param side_2: float representing length of side adjacent to side_1
-    (include the data type when describing your inputs)
-
+    :param side1: float representing length of one side
+    :param side2: float representing length of side adjacent to side1
     :return: area of rectangle with given side lengths
     """
-    area = side_1 * side_2
+    area = side1 * side2
     return area
 
 
-# if you're used to matlab, you know that you write functions and include the outputs and inputs in your function
-# definition. in python, the outputs are in the return statement at the end.
-
-# to call the function:
+# Note that you can designate the output of a function to a variable or print the output directly
 area1 = rectangle_area(4, 5)
 print(area1)
-# notice that printing area won't work. This is just the variable name of the value the function returns. We need to
-# designate a name to accept the output, which was area 1.
-print(area)
+print(rectangle_area(4, 5))
 
 
-# can also create functions with no return statements but that have print statements
+# Functions without returns will return None. Functions don't always need inputs.
 def hello():
     """
     Prints Hello World
-
     :return: None
     """
-    print("Hello World!")
+    print("Hello World")
 
 
 hello()
